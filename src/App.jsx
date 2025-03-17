@@ -5,11 +5,22 @@ import Heading from "./components/Header/Header"
 import Container from "./components/Container/Container"
 
 function App() {
+
+const onSearch = (query) => {
+  console.log(query)
+  // fetch data from the API
+  // update the state
+  // render the data in the Card component
+}
+
+
+
+
   return (
 
     <Container>
       <Heading />
-      <SearchBar />
+      <SearchBar onSearch={onSearch} />
       <CardContainer>
         <Card />
       </CardContainer>
