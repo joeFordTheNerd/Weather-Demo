@@ -7,7 +7,7 @@ Getting Started
 ---------------
 
 ### Live Demo
-The a demo is available at `https://effervescent-pixie-067e7b.netlify.app/`
+The demo is available at `https://effervescent-pixie-067e7b.netlify.app/`
 Password: My-Drop-Site
 
 ### Clone the Repository
@@ -64,4 +64,4 @@ Known Limitations
 Final Notes
 -----------
 
-This project was built as part of a technical assessment under time constraints. While it is functional and visually appealing, some areas could be refined further with additional time.
+This project was built as part of a technical assessment under time constraints. While it is functional and visually styled, some areas could be refined further with additional time.
