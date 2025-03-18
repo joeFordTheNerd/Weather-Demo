@@ -6,6 +6,10 @@
     padding: var(--spacing-sm);
     margin-top:50px;
     height: auto;
+
+    .error{
+        text-align: center;
+    }
     
 }
 
