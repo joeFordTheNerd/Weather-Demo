@@ -7,6 +7,8 @@ import Container from "./components/Container/Container"
 
 function App() {
 
+const [weatherData, setWeatherData] = useState([])
+
   const fetchWeather = async (latitude, longitude) => {
     try {
       const response = await fetch(
@@ -23,7 +25,7 @@ function App() {
           windSpeed: weatherData.daily.wind_speed_10m_max[index]
         }));
 
-        console.log(formattedWeather)
+        setWeatherData(formattedWeather)
 
       } else {
         console.log("No results found")
@@ -68,9 +70,7 @@ function App() {
     <Container>
       <Heading />
       <SearchBar onSearch={onSearch} />
-      <CardContainer>
-        <Card />
-      </CardContainer>
+      <CardContainer weatherData={weatherData} />
     </Container>
   )
 }
