@@ -10,7 +10,6 @@ const {description, icon} = getWeatherDetails(weather.weatherCode)
         <div> {icon} </div>
         <div>{description}</div>
         <div>High: {weather.maxTemp}°C / Low: {weather.minTemp}°C </div>
-        {/* todo: check wind units in briefing */}
         <div>Wind: {weather.windSpeed} km/h</div>
     </div>
   )

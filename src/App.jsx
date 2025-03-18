@@ -8,7 +8,7 @@ import Container from "./components/Container/Container"
 function App() {
 
 const [weatherData, setWeatherData] = useState([])
-
+const [error, setError] = useState("")
   const fetchWeather = async (latitude, longitude) => {
     try {
       const response = await fetch(
@@ -59,10 +59,13 @@ const [weatherData, setWeatherData] = useState([])
   }
 
   const onSearch = async (query) => {
+    setError("")
+    setWeatherData([]) //clear previous error and data on a repeat search
     const location = await fetchLatLong(query)
     if (location) {
       fetchWeather(location.latitude, location.longitude)
-
+    }else{
+      setError("No results found, enter a town or city name")
     }
   }
 
@@ -70,7 +73,7 @@ const [weatherData, setWeatherData] = useState([])
     <Container>
       <Heading />
       <SearchBar onSearch={onSearch} />
-      <CardContainer weatherData={weatherData} />
+      <CardContainer weatherData={weatherData} error={error} />
     </Container>
   )
 }

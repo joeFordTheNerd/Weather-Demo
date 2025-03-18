@@ -4,7 +4,7 @@ import * as styles from './Header.module.css'
 function Header() {
   return (
     <div className={styles.Header}>
-      Heading
+      Your Five Day Weather Horizon
     </div>
   )
 }
