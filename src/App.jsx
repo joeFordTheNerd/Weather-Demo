@@ -7,8 +7,8 @@ import Container from "./components/Container/Container"
 
 function App() {
 
-const [weatherData, setWeatherData] = useState([])
-const [error, setError] = useState("")
+  const [weatherData, setWeatherData] = useState([])
+  const [error, setError] = useState("")
   const fetchWeather = async (latitude, longitude) => {
     try {
       const response = await fetch(
@@ -16,14 +16,22 @@ const [error, setError] = useState("")
       );
       const weatherData = await response.json();
       if (weatherData.daily) {
-        //get the data we want for the weather cards and return a clean object
-        const formattedWeather = weatherData.daily.time.map((date, index) => ({
-          date: date,
-          weatherCode: weatherData.daily.weather_code[index],
-          maxTemp: weatherData.daily.temperature_2m_max[index],
-          minTemp: weatherData.daily.temperature_2m_min[index],
-          windSpeed: weatherData.daily.wind_speed_10m_max[index]
-        }));
+
+        const formattedWeather = weatherData.daily.time.map((dateString, index) => {
+          const dateObj = new Date(dateString)
+          const formattedDate = dateObj.toLocaleDateString("en-GB", {
+            weekday: "long",
+            day: "numeric",
+            month: "long"
+          });
+          return {
+            date: formattedDate,
+            weatherCode: weatherData.daily.weather_code[index],
+            maxTemp: weatherData.daily.temperature_2m_max[index],
+            minTemp: weatherData.daily.temperature_2m_min[index],
+            windSpeed: weatherData.daily.wind_speed_10m_max[index]
+          }
+        });
 
         setWeatherData(formattedWeather)
 
@@ -64,7 +72,7 @@ const [error, setError] = useState("")
     const location = await fetchLatLong(query)
     if (location) {
       fetchWeather(location.latitude, location.longitude)
-    }else{
+    } else {
       setError("No results found, enter a town or city name")
     }
   }
