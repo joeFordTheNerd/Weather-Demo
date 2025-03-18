@@ -1,7 +1,18 @@
 .cardContainer{
-    display: flex;
-    flex-direction: row;
-    gap:20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
     justify-content: center;
-    margin-top: 20px;
+    padding: var(--spacing-sm);
+    margin-top:50px;
+    height: auto;
+    
+}
+
+@media (max-width: 500px) {
+    .cardContainer {
+        padding: var(--spacing-lg);
+        grid-template-columns: 1fr; 
+        margin-bottom: var(--spacing-lg);
+    }
 }

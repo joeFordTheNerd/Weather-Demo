@@ -2,3 +2,8 @@
     width: 100%;
     text-align: center;
 }
+
+.Header h1{
+    font-family: var(--header-font);
+    line-height: 1.2;
+}

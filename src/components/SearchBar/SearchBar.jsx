@@ -23,8 +23,9 @@ function SearchBar({ onSearch }) {
           placeholder="Enter a location..."
           onChange={handleChange}
           onKeyDown={handleEnter}
+          className={styles.input}
         />
-      <button onClick={() => onSearch(query)}>Search</button>
+      <button className={styles.button} onClick={() => onSearch(query)}>Search</button>
       </div>
     </>
   )
