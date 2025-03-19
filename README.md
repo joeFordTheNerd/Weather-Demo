@@ -6,10 +6,6 @@ A simple weather forecast app that displays a five-day forecast for a given loca
 Getting Started
 ---------------
 
-### Live Demo
-The demo is available at `https://effervescent-pixie-067e7b.netlify.app/`
-Password: My-Drop-Site
-
 ### Clone the Repository
 
 ```
